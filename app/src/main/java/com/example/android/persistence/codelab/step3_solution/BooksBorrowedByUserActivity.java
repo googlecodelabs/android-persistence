@@ -71,6 +71,6 @@ public class BooksBorrowedByUserActivity extends LifecycleActivity {
             sb.append("\n");
 
         }
-        booksTextView.setText(sb.toString());
+        mBooksTextView.setText(sb.toString());
     }
 }
