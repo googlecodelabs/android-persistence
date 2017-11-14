@@ -21,6 +21,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
+import android.support.annotation.NonNull;
 
 import java.util.Date;
 
@@ -35,7 +36,9 @@ import java.util.Date;
 @TypeConverters(DateConverter.class)
 public class Loan {
     // Fields can be public or private with getters and setters.
-    public @PrimaryKey String id;
+    public @PrimaryKey
+    @NonNull
+    String id;
     public Date startTime;
     public Date endTime;
     @ColumnInfo(name="book_id")

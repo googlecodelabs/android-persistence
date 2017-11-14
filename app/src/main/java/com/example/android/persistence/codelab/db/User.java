@@ -18,11 +18,14 @@ package com.example.android.persistence.codelab.db;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 
 @Entity
 public class User {
-    public @PrimaryKey String id;
+    public @PrimaryKey
+    @NonNull
+    String id;
     public String name;
     public String lastName;
     public int age;
