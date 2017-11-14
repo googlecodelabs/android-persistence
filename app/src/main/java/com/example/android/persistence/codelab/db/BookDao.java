@@ -35,14 +35,14 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 public interface BookDao {
 
     @Query("select * from Book where id = :id")
-    User loadUserById(int id);
+    Book loadBookById(int id);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id = Book.id " +
             "INNER JOIN User on User.id = Loan.user_id " +
             "WHERE User.name LIKE :userName"
     )
-    public LiveData<List<Book>> findBooksBorrowedByName(String userName);
+    LiveData<List<Book>> findBooksBorrowedByName(String userName);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id = Book.id " +
@@ -50,40 +50,40 @@ public interface BookDao {
             "WHERE User.name LIKE :userName " +
             "AND Loan.endTime > :after "
     )
-    public LiveData<List<Book>> findBooksBorrowedByNameAfter(String userName, Date after);
+    LiveData<List<Book>> findBooksBorrowedByNameAfter(String userName, Date after);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id = Book.id " +
             "INNER JOIN User on User.id = Loan.user_id " +
             "WHERE User.name LIKE :userName"
     )
-    public List<Book> findBooksBorrowedByNameSync(String userName);
+    List<Book> findBooksBorrowedByNameSync(String userName);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id LIKE Book.id " +
             "WHERE Loan.user_id LIKE :userId "
     )
-    public LiveData<List<Book>> findBooksBorrowedByUser(String userId);
+    LiveData<List<Book>> findBooksBorrowedByUser(String userId);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id LIKE Book.id " +
             "WHERE Loan.user_id LIKE :userId " +
             "AND Loan.endTime > :after "
     )
-    public LiveData<List<Book>> findBooksBorrowedByUserAfter(String userId, Date after);
+    LiveData<List<Book>> findBooksBorrowedByUserAfter(String userId, Date after);
 
     @Query("SELECT * FROM Book " +
             "INNER JOIN Loan ON Loan.book_id LIKE Book.id " +
             "WHERE Loan.user_id LIKE :userId "
     )
-    public List<Book> findBooksBorrowedByUserSync(String userId);
+    List<Book> findBooksBorrowedByUserSync(String userId);
 
     @Query("SELECT * FROM Book")
-    public LiveData<List<Book>> findAllBooks();
+    LiveData<List<Book>> findAllBooks();
 
 
     @Query("SELECT * FROM Book")
-    public List<Book> findAllBooksSync();
+    List<Book> findAllBooksSync();
 
     @Insert(onConflict = IGNORE)
     void insertBook(Book book);
