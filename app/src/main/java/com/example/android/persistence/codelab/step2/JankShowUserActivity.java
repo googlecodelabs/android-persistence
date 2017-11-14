@@ -18,10 +18,10 @@ package com.example.android.persistence.codelab.step2;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import android.arch.lifecycle.LifecycleActivity;
 import com.example.android.codelabs.persistence.R;
 import com.example.android.persistence.codelab.db.AppDatabase;
 import com.example.android.persistence.codelab.db.Book;
@@ -29,11 +29,21 @@ import com.example.android.persistence.codelab.db.utils.DatabaseInitializer;
 
 import java.util.List;
 
-public class JankShowUserActivity extends LifecycleActivity {
+public class JankShowUserActivity extends AppCompatActivity {
 
     private AppDatabase mDb;
 
     private TextView mBooksTextView;
+
+    private static void showListInUI(final @NonNull List<Book> books,
+                                     final TextView booksTextView) {
+        StringBuilder sb = new StringBuilder();
+        for (Book book : books) {
+            sb.append(book.title);
+            sb.append("\n");
+        }
+        booksTextView.setText(sb.toString());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +51,7 @@ public class JankShowUserActivity extends LifecycleActivity {
 
         setContentView(R.layout.db_activity);
 
-        mBooksTextView = (TextView) findViewById(R.id.books_tv);
+        mBooksTextView = findViewById(R.id.books_tv);
 
         // Note: Db references should not be in an activity.
         mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
@@ -65,16 +75,6 @@ public class JankShowUserActivity extends LifecycleActivity {
         // This activity is executing a query on the main thread, making the UI perform badly.
         List<Book> books = mDb.bookModel().findBooksBorrowedByNameSync("Mike");
         showListInUI(books, mBooksTextView);
-    }
-
-    private static void showListInUI(final @NonNull List<Book> books,
-                                     final TextView booksTextView) {
-        StringBuilder sb = new StringBuilder();
-        for (Book book : books) {
-            sb.append(book.title);
-            sb.append("\n");
-        }
-        booksTextView.setText(sb.toString());
     }
 
     public void onRefreshBtClicked(View view) {

@@ -16,18 +16,18 @@
 
 package com.example.android.persistence.codelab.step5_solution;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import android.arch.lifecycle.LifecycleActivity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import com.example.android.codelabs.persistence.R;
 
 
-public class CustomResultUserActivity extends LifecycleActivity {
+public class CustomResultUserActivity extends AppCompatActivity {
 
     private CustomResultViewModel mShowUserViewModel;
 
@@ -38,7 +38,7 @@ public class CustomResultUserActivity extends LifecycleActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.db_activity);
-        mBooksTextView = (TextView) findViewById(R.id.books_tv);
+        mBooksTextView = findViewById(R.id.books_tv);
 
         mShowUserViewModel = ViewModelProviders.of(this).get(CustomResultViewModel.class);
 
