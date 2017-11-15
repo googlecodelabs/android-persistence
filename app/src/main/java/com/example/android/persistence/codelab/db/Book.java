@@ -22,8 +22,9 @@ import android.support.annotation.NonNull;
 
 @Entity
 public class Book {
-    public @PrimaryKey
+    @PrimaryKey
     @NonNull
-    String id;
+    public String id;
+    
     public String title;
 }
