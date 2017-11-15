@@ -114,7 +114,7 @@ public class DatabaseInitializer {
 
     private static Date getTodayPlusDays(int daysAgo) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DATE, daysAgo);
+        calendar.add(Calendar.DATE, daysAgo);
         return calendar.getTime();
     }
 

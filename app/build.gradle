@@ -17,12 +17,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.0"
     defaultConfig {
         applicationId 'com.example.android.codelabs.persistence'
-        minSdkVersion 26
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -47,15 +47,18 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:cardview-v7:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
+
+    compile 'com.android.support:appcompat-v7:' + rootProject.supportLibVersion
+    compile 'com.android.support:cardview-v7:' + rootProject.supportLibVersion
+    compile 'com.android.support:recyclerview-v7:' + rootProject.supportLibVersion
+    compile 'com.android.support:support-v4:' + rootProject.supportLibVersion
+
     testCompile 'junit:junit:4.12'
-    compile 'android.arch.lifecycle:extensions:1.0.0'
-    compile 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+    compile 'android.arch.lifecycle:extensions:' + rootProject.archLifecycleVersion
+    compile 'android.arch.persistence.room:runtime:' + rootProject.archRoomVersion
+    annotationProcessor 'android.arch.lifecycle:compiler:' + rootProject.archLifecycleVersion
+    annotationProcessor 'android.arch.persistence.room:compiler:' + rootProject.archRoomVersion
 }

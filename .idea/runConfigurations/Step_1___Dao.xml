@@ -6,13 +6,12 @@
     <option name="PM_INSTALL_OPTIONS" value="" />
     <option name="ACTIVITY_EXTRA_FLAGS" value="" />
     <option name="MODE" value="specific_activity" />
-    <option name="PREFERRED_AVD" value="" />
     <option name="CLEAR_LOGCAT" value="false" />
     <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
     <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
     <option name="FORCE_STOP_RUNNING_APP" value="true" />
     <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-    <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+    <option name="USE_LAST_SELECTED_DEVICE" value="true" />
     <option name="PREFERRED_AVD" value="" />
     <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
     <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -40,12 +39,13 @@
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
     </Native>
     <Profilers>
-      <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-      <option name="SUPPORT_LIB_ENABLED" value="true" />
-      <option name="INSTRUMENTATION_ENABLED" value="true" />
+      <option name="ADVANCED_PROFILING_ENABLED" value="false" />
     </Profilers>
     <option name="DEEP_LINK" value="" />
     <option name="ACTIVITY_CLASS" value="com.example.android.persistence.codelab.step1.UsersActivity" />
-    <method />
+    <method>
+      <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510760885751" />
+    </method>
   </configuration>
 </component>
