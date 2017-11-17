@@ -17,9 +17,9 @@
 package com.example.android.persistence.codelab.step1;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import android.arch.lifecycle.LifecycleActivity;
 import com.example.android.codelabs.persistence.R;
 import com.example.android.persistence.codelab.db.AppDatabase;
 import com.example.android.persistence.codelab.db.User;
@@ -28,7 +28,7 @@ import com.example.android.persistence.codelab.db.utils.DatabaseInitializer;
 import java.util.List;
 import java.util.Locale;
 
-public class UsersActivity extends LifecycleActivity {
+public class UsersActivity extends AppCompatActivity {
 
     private AppDatabase mDb;
 
@@ -40,7 +40,7 @@ public class UsersActivity extends LifecycleActivity {
 
         setContentView(R.layout.db_activity1);
 
-        mYoungUsersTextView = (TextView) findViewById(R.id.young_users_tv);
+        mYoungUsersTextView = findViewById(R.id.young_users_tv);
 
         // Note: Db references should not be in an activity.
         mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
@@ -63,7 +63,7 @@ public class UsersActivity extends LifecycleActivity {
     private void fetchData() {
         // Note: this kind of logic should not be in an activity.
         StringBuilder sb = new StringBuilder();
-        List<User> youngUsers = mDb.userModel().findYoungerThan(35);
+        List<User> youngUsers = mDb.userModel().findUsersYoungerThan(35);
         for (User youngUser : youngUsers) {
             sb.append(String.format(Locale.US,
                     "%s, %s (%d)\n", youngUser.lastName, youngUser.name, youngUser.age));

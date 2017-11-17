@@ -16,19 +16,19 @@
 
 package com.example.android.persistence.codelab.step3;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import android.arch.lifecycle.LifecycleActivity;
-import android.arch.lifecycle.ViewModelProviders;
 import com.example.android.codelabs.persistence.R;
 import com.example.android.persistence.codelab.db.Book;
 
 import java.util.List;
 
-public class BooksBorrowedByUserActivity extends LifecycleActivity {
+public class BooksBorrowedByUserActivity extends AppCompatActivity {
 
     private BooksBorrowedByUserViewModel mViewModel;
 
@@ -40,7 +40,7 @@ public class BooksBorrowedByUserActivity extends LifecycleActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.db_activity);
-        mBooksTextView = (TextView) findViewById(R.id.books_tv);
+        mBooksTextView = findViewById(R.id.books_tv);
 
         // Get a reference to the ViewModel for this screen.
         mViewModel = ViewModelProviders.of(this).get(BooksBorrowedByUserViewModel.class);
@@ -59,8 +59,7 @@ public class BooksBorrowedByUserActivity extends LifecycleActivity {
     }
 
     @SuppressWarnings("unused")
-    private static void showBooksInUi(final @NonNull List<Book> books,
-                                      final TextView booksTextView) {
+    private void showBooksInUi(final @NonNull List<Book> books) {
         StringBuilder sb = new StringBuilder();
 
         for (Book book : books) {
@@ -68,6 +67,6 @@ public class BooksBorrowedByUserActivity extends LifecycleActivity {
             sb.append("\n");
 
         }
-        booksTextView.setText(sb.toString());
+        mBooksTextView.setText(sb.toString());
     }
 }

@@ -57,7 +57,7 @@ public class TypeConvertersViewModel extends AndroidViewModel {
     private void subscribeToDbChanges() {
         // Books is a LiveData object so updates are observed.
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DATE, -1);
+        calendar.add(Calendar.DATE, -1);
         Date yesterday = calendar.getTime();
         mBooks = mDb.bookModel().findBooksBorrowedByNameAfter("Mike", yesterday);
     }

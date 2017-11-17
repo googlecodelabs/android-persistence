@@ -34,7 +34,7 @@ public interface UserDao {
     User loadUserById(int id);
 
     @Query("select * from user where name = :firstName and lastName = :lastName")
-    List<User> findByNameAndLastName(String firstName, String lastName);
+    List<User> findUserByNameAndLastName(String firstName, String lastName);
 
     @Insert(onConflict = IGNORE)
     void insertUser(User user);
@@ -52,10 +52,10 @@ public interface UserDao {
     void deleteUsers(User user1, User user2);
 
     @Query("SELECT * FROM User WHERE :age == :age") // TODO: Fix this!
-    List<User> findYoungerThan(int age);
+    List<User> findUsersYoungerThan(int age);
 
     @Query("SELECT * FROM User WHERE age < :age")
-    List<User> findYoungerThanSolution(int age);
+    List<User> findUsersYoungerThanSolution(int age);
 
     @Query("DELETE FROM User")
     void deleteAll();

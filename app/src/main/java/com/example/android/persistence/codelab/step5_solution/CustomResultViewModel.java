@@ -82,7 +82,7 @@ public class CustomResultViewModel extends AndroidViewModel {
 
     private Date getYesterdayDate() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DATE, -1);
+        calendar.add(Calendar.DATE, -1);
         return calendar.getTime();
     }
 }

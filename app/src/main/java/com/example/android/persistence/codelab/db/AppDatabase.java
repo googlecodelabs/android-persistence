@@ -28,7 +28,9 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
     public abstract UserDao userModel();
+
     public abstract BookDao bookModel();
+
     public abstract LoanDao loanModel();
 
     public static AppDatabase getInMemoryDatabase(Context context) {
