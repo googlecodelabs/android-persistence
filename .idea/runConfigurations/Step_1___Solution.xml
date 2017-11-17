@@ -45,7 +45,7 @@
     <option name="ACTIVITY_CLASS" value="com.example.android.persistence.codelab.step1_solution.UsersActivity" />
     <method>
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510917502512" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510919282160" />
     </method>
   </configuration>
 </component>
