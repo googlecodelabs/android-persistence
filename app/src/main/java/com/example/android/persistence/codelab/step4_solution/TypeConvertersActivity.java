@@ -35,18 +35,6 @@ public class TypeConvertersActivity extends AppCompatActivity {
 
     private TextView mBooksTextView;
 
-    private static void showBooksInUi(final @NonNull List<Book> books,
-                                      final TextView booksTextView) {
-        StringBuilder sb = new StringBuilder();
-
-        for (Book book : books) {
-            sb.append(book.title);
-            sb.append("\n");
-
-        }
-        booksTextView.setText(sb.toString());
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +57,19 @@ public class TypeConvertersActivity extends AppCompatActivity {
         mViewModel.getBooks().observe(this, new Observer<List<Book>>() {
             @Override
             public void onChanged(@NonNull final List<Book> books) {
-                showBooksInUi(books, mBooksTextView);
+                showBooksInUi(books);
             }
         });
+    }
+
+    private void showBooksInUi(final @NonNull List<Book> books) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Book book : books) {
+            sb.append(book.title);
+            sb.append("\n");
+
+        }
+        mBooksTextView.setText(sb.toString());
     }
 }
