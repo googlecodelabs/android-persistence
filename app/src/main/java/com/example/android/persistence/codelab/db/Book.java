@@ -25,6 +25,6 @@ public class Book {
     @PrimaryKey
     @NonNull
     public String id;
-    
+
     public String title;
 }

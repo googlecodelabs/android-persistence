@@ -36,13 +36,17 @@ import java.util.Date;
 @TypeConverters(DateConverter.class)
 public class Loan {
     // Fields can be public or private with getters and setters.
-    public @PrimaryKey
+    @PrimaryKey
     @NonNull
-    String id;
+    public String id;
+
     public Date startTime;
+
     public Date endTime;
+
     @ColumnInfo(name="book_id")
     public String bookId;
+
     @ColumnInfo(name="user_id")
     public String userId;
 }

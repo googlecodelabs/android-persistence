@@ -23,10 +23,13 @@ import android.support.annotation.NonNull;
 
 @Entity
 public class User {
-    public @PrimaryKey
+    @PrimaryKey
     @NonNull
-    String id;
+    public String id;
+
     public String name;
+
     public String lastName;
+
     public int age;
 }

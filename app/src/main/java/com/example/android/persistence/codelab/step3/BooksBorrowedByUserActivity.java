@@ -35,19 +35,6 @@ public class BooksBorrowedByUserActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     private TextView mBooksTextView;
 
-    @SuppressWarnings("unused")
-    private static void showBooksInUi(final @NonNull List<Book> books,
-                                      final TextView booksTextView) {
-        StringBuilder sb = new StringBuilder();
-
-        for (Book book : books) {
-            sb.append(book.title);
-            sb.append("\n");
-
-        }
-        booksTextView.setText(sb.toString());
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,5 +56,17 @@ public class BooksBorrowedByUserActivity extends AppCompatActivity {
     private void subscribeUiBooks() {
         // TODO: refresh the list of books when there's new data
         // mViewModel.books.observe(...
+    }
+
+    @SuppressWarnings("unused")
+    private void showBooksInUi(final @NonNull List<Book> books) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Book book : books) {
+            sb.append(book.title);
+            sb.append("\n");
+
+        }
+        mBooksTextView.setText(sb.toString());
     }
 }
